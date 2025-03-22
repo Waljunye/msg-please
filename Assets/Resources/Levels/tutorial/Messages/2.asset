@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08505af7ac2dd4b8db54610b661dcffb, type: 3}
+  m_Name: 2
+  m_EditorClassIdentifier: 
+  message: "\u0410\u0423\u0410\u041F\u044B\u0432\u0430\u0430\u0444\u044B\u0432\u0430"
+  senderName: "\u0412\u043E\u043B\u043A\u043E\u0432 \u041C\u0430\u0442\u0432\u0435\u0439"
+  recieverName: "\u041F\u0435\u0442\u0440\u044F\u0435\u0432 \u041E\u043B\u0435\u0433"
+  paperPrefab: {fileID: 8154015488597214122, guid: 728a97c50bb6340fa9cacd6352fb8672, type: 3}

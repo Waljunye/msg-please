@@ -1,0 +1,34 @@
+{
+    "name": "main_controls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "e19dcef2-ec0e-4086-b05f-70915fed6e3b",
+            "actions": [
+                {
+                    "name": "MoveToTable",
+                    "type": "Button",
+                    "id": "bce77386-eae7-4c56-acb4-dbacf4e02da4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3c3aa6a3-09ef-406b-99ce-a0198d27a02f",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveToTable",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
