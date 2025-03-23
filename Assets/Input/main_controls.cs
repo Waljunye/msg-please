@@ -99,6 +99,15 @@ public partial class @Main_controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveToWhole"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb991e03-31c1-4a8e-9802-0ebb6ae180e7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @Main_controls: IInputActionCollection2, IDisposable
                     ""action"": ""MoveToTable"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""503886ff-1b68-4eff-a7d9-7ccf1f1ce2b0"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveToWhole"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -121,6 +141,7 @@ public partial class @Main_controls: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MoveToTable = m_Player.FindAction("MoveToTable", throwIfNotFound: true);
+        m_Player_MoveToWhole = m_Player.FindAction("MoveToWhole", throwIfNotFound: true);
     }
 
     ~@Main_controls()
@@ -202,6 +223,7 @@ public partial class @Main_controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_MoveToTable;
+    private readonly InputAction m_Player_MoveToWhole;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -217,6 +239,10 @@ public partial class @Main_controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/MoveToTable".
         /// </summary>
         public InputAction @MoveToTable => m_Wrapper.m_Player_MoveToTable;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/MoveToWhole".
+        /// </summary>
+        public InputAction @MoveToWhole => m_Wrapper.m_Player_MoveToWhole;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -246,6 +272,9 @@ public partial class @Main_controls: IInputActionCollection2, IDisposable
             @MoveToTable.started += instance.OnMoveToTable;
             @MoveToTable.performed += instance.OnMoveToTable;
             @MoveToTable.canceled += instance.OnMoveToTable;
+            @MoveToWhole.started += instance.OnMoveToWhole;
+            @MoveToWhole.performed += instance.OnMoveToWhole;
+            @MoveToWhole.canceled += instance.OnMoveToWhole;
         }
 
         /// <summary>
@@ -260,6 +289,9 @@ public partial class @Main_controls: IInputActionCollection2, IDisposable
             @MoveToTable.started -= instance.OnMoveToTable;
             @MoveToTable.performed -= instance.OnMoveToTable;
             @MoveToTable.canceled -= instance.OnMoveToTable;
+            @MoveToWhole.started -= instance.OnMoveToWhole;
+            @MoveToWhole.performed -= instance.OnMoveToWhole;
+            @MoveToWhole.canceled -= instance.OnMoveToWhole;
         }
 
         /// <summary>
@@ -307,5 +339,12 @@ public partial class @Main_controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMoveToTable(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MoveToWhole" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveToWhole(InputAction.CallbackContext context);
     }
 }

@@ -1,18 +1,20 @@
 using System.Collections.Generic;
 using Messages;
+using PlayerCamera;
+using PlayerControls;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Utils;
 
 public class EntryPoint : MonoBehaviour
     {
-        [FormerlySerializedAs("MessageSpawnPoint")] [SerializeField]
+        [SerializeField]
         private Transform messageSpawnPoint;
-        
         [SerializeField]
         private Transform messageViewOnTableStartPoint;
         
         private MessageManager _messageManager;
+        private CameraManager _cameraManager;
+        private MainControls _playerControls;
+        
         private GameObject _messageViewGameObject;
         private List<Message> _messages;
         private int _currentMessageIndex = 0;
@@ -45,13 +47,19 @@ public class EntryPoint : MonoBehaviour
         private void StartGame()
         {
             _messageManager = new MessageManager(this, messageSpawnPoint, messageViewOnTableStartPoint);
+            _cameraManager = new CameraManager(Camera.main);
+            _playerControls = new MainControls(_cameraManager);
+            
+            _playerControls.Initialize();
+            _playerControls.Enable();
             
             Config.Config config = Config.Config.LoadConfig();
             
             LevelID = config.StartLevel;
-            State = GameState.GAME;    
+            State = GameState.GAME;
             
             LoadLevel(LevelID);
+            
         }
 
         private void LoadLevel(string levelID)
